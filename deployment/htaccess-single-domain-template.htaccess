@@ -1,0 +1,35 @@
+# ==============================================================================
+# Single-Domain Root .htaccess Template
+# For serving Storefront (/), Admin (/admin-portal/), and Backend API (/api/)
+# ==============================================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 2. Route API requests to PHP backend front controller
+  RewriteRule ^api/(.*)$ backend/public/index.php [QSA,L]
+
+  # 3. Route Admin Portal requests to admin SPA
+  RewriteCond %{REQUEST_URI} ^/admin-portal/ [NC]
+  RewriteCond %{DOCUMENT_ROOT}/admin/dist%{REQUEST_URI} !-f
+  RewriteCond %{DOCUMENT_ROOT}/admin/dist%{REQUEST_URI} !-d
+  RewriteRule ^admin-portal/(.*)$ /admin/dist/index.html [L]
+
+  # 4. Route Customer Storefront requests to frontend SPA
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ /frontend/dist/index.html [L]
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

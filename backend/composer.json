@@ -1,0 +1,14 @@
+{
+    "name": "officefuel/backend",
+    "description": "OfficeFuel / Ghar Ka Market REST API",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}

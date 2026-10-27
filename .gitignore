@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build artifacts
+dist/
+build/
+*.sqlite
+*.sqlite3
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.lock
+storage/installed.lock
+
+# Logs
+storage/logs/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System & IDE files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Automatically generated safety ignore rules
+node_modules/
+.pnp/
+.pnp.js
+.next/
+.nuxt/
+dist/
+build/
+out/
+.cache/
+.gradle/
+android/app/build/
+**/build/
+*.apk
+*.aab
+*.so
+*.dylib
+*.bin
+*.ap_
+.env
+.env.local
+.env.*.local
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+.DS_Store
+Thumbs.db
+upload_all_to_github.py

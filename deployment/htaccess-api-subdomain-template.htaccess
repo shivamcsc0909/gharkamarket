@@ -1,0 +1,26 @@
+# ==============================================================================
+# API Subdomain .htaccess Template (api.officefuel.in)
+# ==============================================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Pass Authorization Header to PHP in FastCGI / PHP-FPM environments
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+  # Handle CORS preflight OPTIONS requests if needed by Apache
+  RewriteCond %{REQUEST_METHOD} OPTIONS
+  RewriteRule ^(.*)$ index.php [QSA,L]
+
+  # Route all API traffic to index.php front controller
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+# Prevent viewing of sensitive files
+<FilesMatch "^\.(env|git|lock)">
+  Order allow,deny
+  Deny from all
+</FilesMatch>

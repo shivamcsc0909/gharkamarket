@@ -1,0 +1,8 @@
+[2026-09-20 17:04:39] [WARNING] Razorpay credentials missing. Generating test order ID for simulation.
+[2026-09-20 17:04:39] [INFO] Email notification simulated (Mail not configured): To [rahul.sharma@example.com], Subject [Your OfficeFuel Order #OF-2026-000001 is Confirmed!]
+[2026-09-20 17:04:39] [INFO] SMS notification skipped (SMS not configured): To [9876543210], Message: [OfficeFuel: Your order #OF-2026-000001 of INR 319.3 is confirmed! Track anytime on officefuel.in]
+[2026-09-20 17:04:39] [AUDIT] Admin [system] performed [admin_initial_setup] on [admin_users:1] {"email":"admin@officefuel.in","role":"super_admin"}
+[2026-09-20 17:28:33] [WARNING] Razorpay credentials missing. Generating test order ID for simulation.
+[2026-09-20 17:28:33] [INFO] Email notification simulated (Mail not configured): To [rahul.sharma@example.com], Subject [Your OfficeFuel Order #OF-2026-000001 is Confirmed!]
+[2026-09-20 17:28:33] [INFO] SMS notification skipped (SMS not configured): To [9876543210], Message: [OfficeFuel: Your order #OF-2026-000001 of INR 319.3 is confirmed! Track anytime on officefuel.in]
+[2026-09-20 17:28:33] [AUDIT] Admin [system] performed [admin_initial_setup] on [admin_users:1] {"email":"admin@officefuel.in","role":"super_admin"}
